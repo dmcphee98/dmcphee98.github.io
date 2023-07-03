@@ -1,0 +1,128 @@
+/*.proj-form-container {
+    width: 80%;
+    min-width: 320px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+.proj-img-container {
+    max-width: 20%;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}*/
+
+.proj-img {
+    height: 65%;
+    background: #12c2e9;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-attachment: fixed;
+}  
+
+@media screen and (max-width: 768px) {
+    .proj-img {
+        height: 85%;
+    }
+  }
+  
+
+.proj-title {
+    font-size: 72px;
+    font-weight: 700;
+    font-style: italic;
+    font-family: 'Lobster Two', cursive;
+    background-image: linear-gradient(to bottom, #eeda58, #c4e874, #9af29b, #73f7c5, #5af9eb);
+    background-attachment: fixed;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+
+.proj-form {
+    width: 100%;
+    min-height: 55%;
+}
+
+.proj-info-container {
+    height: 10%;
+    width: 100%;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.proj-info {
+    display: inline-block;
+    white-space: pre-wrap;
+}
+
+.proj-result-container {
+    width: 25%;
+    height: 100%;
+    max-width: 280px;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+
+.proj-img-container {
+    overflow: hidden;
+}
+
+
+@media screen and (min-width: 768px) {
+    .proj-page-container {
+        flex-direction: column;    
+    }
+    .proj-content {
+        flex-direction: row;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .proj-page-container {
+        flex-direction: row;    
+    }
+    .proj-content {
+        flex-direction: column;
+    }
+}
+
+.proj-content {
+    height: 92%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.proj-warning {
+    height: 8%;
+    width: 100%;
+    color: rgb(44, 44, 44);
+    max-width: 90%;
+}
+
+.proj-warning-bold {
+    font-weight: 700;
+    font-style: italic;
+    font-family: 'Lobster Two', cursive;
+    font-size: 1.5rem;
+	color: #dc60c1;
+  }
+
+.proj-warning-icon {
+    font-size: 1.2rem;
+    color: #dc60c1;
+}

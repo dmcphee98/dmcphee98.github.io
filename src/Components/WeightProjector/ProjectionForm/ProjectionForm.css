@@ -1,0 +1,21 @@
+.proj-form {
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.proj-container {
+    margin: 1rem 0.5rem;
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-radius: 2rem;
+}
+
+.proj-or {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-family: 'Lobster Two', cursive;
+    font-size: 2rem;
+}

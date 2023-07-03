@@ -1,0 +1,85 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.ni-container {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 0.5rem;
+    height: 5vh;
+    background-attachment: fixed;
+    background-size: cover; 
+    border-radius: 1.5rem;
+
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.ni-desc {
+    flex: 1.5;
+    color: black;
+    padding-left: 0.5rem;
+}
+
+.ni-input-div {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.ni-input {
+    height: 75%;
+    width: 100%;
+    padding: 0rem 0.75rem;
+    margin: 0.5rem 0rem 0.5rem 0.5rem ;
+    border-radius: 1rem 0rem 0rem 1rem;
+    border: none;
+}
+
+.ni-units {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75%;
+    margin-right: 0.5rem;
+    border-radius: 0rem 1rem 1rem 0rem;
+    color: rgba(0, 0, 0, 0.6);
+    background-color: white;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.ni-active-green {
+    background-image: linear-gradient(to bottom, #eeda58, #c4e874, #9af29b, #73f7c5, #5af9eb);
+}
+
+.ni-active-purple {
+    background: #12c2e9;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #f64f95, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #f64f95, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+.ni-inactive {
+    background-color: rgb(204, 204, 204);
+}

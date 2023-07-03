@@ -1,0 +1,56 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.next-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.fa-circle-chevron-up {
+    border: 2px solid #f1f1f1;
+    border-radius: 50%;
+  }  
+
+.enabled {
+    cursor: pointer;
+    transition: color 0.75s ease;
+}
+
+.disabled {
+    color: #e5e5e5;    
+    transition: color 0.1s ease;
+}
+
+.next-btn {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border: 3px solid #f1f1f1;
+    transition: transform 0.3s ease;
+}
+
+.pulse-border {
+    animation-name: pulseBorder;
+    animation-duration: 1.25s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes pulseBorder {
+    from {
+        border-color: #f1f1f1
+    }
+}
+  
+.down {
+    transform: rotate(180deg);
+}
+  

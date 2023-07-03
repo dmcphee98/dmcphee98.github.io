@@ -1,0 +1,17 @@
+.graph-page {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 110%;
+}
+
+.victory-container {
+    height: 85%;
+}
+
+.export-container {
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

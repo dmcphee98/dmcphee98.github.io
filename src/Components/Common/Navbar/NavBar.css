@@ -1,0 +1,144 @@
+.navbar {
+    background: white;
+    border-bottom: 2px solid #e5e5e5;
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 10;
+}
+
+.navbar-logo-container {
+    padding-left: 3vw;
+    padding-right: 3vw;
+    height: 100%;
+    min-width: fit-content;
+    flex: 1;
+    z-index: 10;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+
+    cursor: pointer;
+}
+
+.navbar-logo {
+    font-size: 38px;
+    font-weight: 700;
+    font-style: italic;
+    font-family: 'Lobster Two', cursive;
+    transition: color 0.75s ease,
+}
+
+.navbar-items {
+    flex: 2;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1.1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.navbar-items {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.navbar-item {
+    height: 100%;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: white;
+    border-top: 1px solid #e5e5e5;
+    transition: background-color 0.2s ease;
+}
+
+.navbar-item a {
+    padding: 0.4rem 1rem 0.5rem 1rem;
+    transition: scale 0.3s ease;
+}
+
+.navbar-item:hover {
+    background-color: #f7f7f7;
+}
+
+.navbar-item:hover a {
+    scale: 120%;
+}
+
+.burger-icon-container {
+    cursor: pointer;
+    z-index: 20;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 90%;
+    width: 10%;
+    overflow: hidden;
+}
+
+.burger-icon {
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scale: 1.2;
+    transition: scale 0.3s ease;
+}
+
+.burger-icon-container:hover .burger-icon {
+    scale: 1.5;
+}
+
+@media screen and (min-width: 768px) {
+    .burger-icon {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .navbar-items {
+        position: absolute;
+        top: -24vh;
+        width: 100%;
+        height: 24vh;
+        display: flex;
+        flex-direction: column;
+        transition: top 0.3s ease;
+    }
+
+    .tray-open {
+        top: 8vh;
+        z-index: 0;
+    }
+
+    .navbar-item {
+        height: 80px;
+    }
+}

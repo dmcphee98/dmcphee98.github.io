@@ -1,0 +1,85 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.fii-container {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 10vh;
+    margin: 0.5rem;
+    background-image: linear-gradient(to bottom, #eeda58, #c4e874, #9af29b, #73f7c5, #5af9eb);
+    background-attachment: fixed;
+    border-radius: 1.5rem;
+}
+
+.fii-desc {
+    flex: 1;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.fii-stacked-inputs {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-width: 5vw;
+}
+
+.fii-input  {
+    padding: 0rem 0.7rem;
+    margin-left: 0.5rem;
+    border-radius: 1rem 0rem 0rem 1rem;
+}
+
+.fii-stacked-units {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-width: 5vw;
+}
+
+.fii-unit {
+    color: rgba(0, 0, 0, 0.6);
+    background-color: white;
+    flex: 3;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.5rem;
+    border-radius: 0rem 1rem 1rem 0rem;
+}
+
+.fii-top, .fii-bot {
+    height: 75%;
+    border: none;
+}
+
+.fii-top {
+    margin-top: 0.4rem;
+    margin-bottom: 0.2rem;
+}
+
+.fii-bot {
+    margin-top: 0.2rem;
+    margin-bottom: 0.4rem;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

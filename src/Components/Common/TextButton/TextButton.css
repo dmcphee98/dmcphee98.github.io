@@ -1,0 +1,17 @@
+.text-btn-container {
+    width: 25%;
+    margin: 0.5rem;
+    height: 6vh;
+    cursor: pointer;
+    display: flex;
+    border-radius: 1.5rem;
+    border-width: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(62, 62, 62);
+}
+
+.text-btn-icon {
+    font-size: 1.5rem;
+}

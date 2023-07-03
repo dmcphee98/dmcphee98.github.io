@@ -1,0 +1,76 @@
+.bmi-img {
+    height: 100%;
+    background-image: linear-gradient(to bottom, #eeda58, #c4e874, #9af29b, #73f7c5, #5af9eb);
+    background-attachment: fixed;
+}
+  
+.bmi-form-metric {
+    width: 100%;
+    height: 31.5vh;
+}
+
+.bmi-form-imperial {
+    width: 100%;
+    height: 36vh;
+}
+
+.bmi-info-container {
+    height: 10%;
+    width: 100%;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bmi-info {
+    display: inline-block;
+    white-space: pre-wrap;
+}
+
+.bmi-output-valid,
+.bmi-output-invalid,
+.bmi-output-incomplete  {
+    height: 20%;
+    width: 100%;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 2rem;
+
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.bmi-output-invalid {
+    flex-direction: column;
+}
+
+.bmi-output-valid,
+.bmi-output-incomplete {
+    flex-direction: row;
+}
+
+.bmi-output-column {
+    margin: 1rem;
+    font-size: 1.25rem;
+    width: 50%;
+}
+
+.inline-bold {
+    height: 45%;
+    font-family: 'Lobster Two', cursive;
+    font-weight: 700;
+    font-size: 2.5rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15%;
+}
