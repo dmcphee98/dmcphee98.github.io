@@ -33,7 +33,7 @@ export function Hero() {
                 "--hero-img-top": "clamp(calc(100cqh - var(--hero-img-h)), calc(290px + 4cqw - 0.445 * var(--hero-img-h)), 0px)",
                 "--hero-head-y": "calc(var(--hero-img-top) + 0.445 * var(--hero-img-h))",
             } as React.CSSProperties}
-            className="sticky top-0 z-1 h-screen overflow-hidden [container-type:size]"
+            className="sticky top-0 z-1 h-svh overflow-hidden [container-type:size]"
         >
             <picture>
                 <source media="(max-width: 767px)" srcSet="/hero_mobile.webp" />

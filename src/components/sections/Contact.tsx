@@ -9,9 +9,19 @@ import { EMAIL, EMAIL_HREF } from "@/data/contact";
 // sheet, so the sheet slides up off it, mirroring the top hero.
 export function Contact() {
     const scrollY = useScrollY();
-    // How far the sheet still covers this section: one viewport height when it starts to show, 0 at the very bottom
-    const covered = Math.max(0, Math.min(window.innerHeight, document.documentElement.scrollHeight - scrollY - window.innerHeight));
-    const reveal = 1 - covered / window.innerHeight;
+    const sectionRef = useRef<HTMLElement>(null);
+    // The section is 100svh, which on mobile is shorter than the viewport once the address bar hides
+    const [sectionH, setSectionH] = useState(window.innerHeight);
+    useEffect(() => {
+        const el = sectionRef.current;
+        if (!el) return;
+        const observer = new ResizeObserver(() => setSectionH(el.offsetHeight));
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, []);
+    // How far the sheet still covers this section: its full height when it starts to show, 0 at the very bottom
+    const covered = Math.max(0, Math.min(sectionH, document.documentElement.scrollHeight - scrollY - window.innerHeight));
+    const reveal = 1 - covered / sectionH;
     // The photo starts lower and rises more slowly than the sheet, matching the top hero's 0.36 parallax
     const parallax = covered * 0.36;
 
@@ -47,7 +57,7 @@ export function Contact() {
     };
 
     return (
-        <section id="contact" className="sticky bottom-0 z-0 h-screen overflow-hidden">
+        <section ref={sectionRef} id="contact" className="sticky bottom-0 z-0 h-svh overflow-hidden">
             <img
                 src="/contact.webp" alt=""
                 style={{ transform: `translateY(${parallax}px)` }}
