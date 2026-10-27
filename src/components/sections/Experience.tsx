@@ -141,13 +141,13 @@ export function Experience() {
                 />
             </svg>
             <section className="bg-page-light px-5 pt-20 pb-20 md:px-10 md:pt-28 md:pb-28 rounded-3xl">
-                <div className="max-w-[1100px] mx-auto">
+                <div className="max-w-275 mx-auto">
                     <Reveal>
                         <SectionHeading label="Experience" onDark={false} className="mb-3">
                             Where I've Worked
                         </SectionHeading>
                         <p className="text-base text-on-light-dim mb-16">
-                            From early-stage agencies to product companies, shipping software that matters.
+                            Hands-on engineering, technical decision-making, and end-to-end feature ownership.
                         </p>
                     </Reveal>
                     <div ref={timelineRef} className="relative">

@@ -28,7 +28,7 @@ export const FEATURED_SKILLS: FeaturedSkill[] = [
         name: "Java",
         Icon: AnimatedJava,
         color: "#EA2D2E",
-        desc: "Robust backend services with Spring Boot, thoughtful API design, asynchronous processing and comprehensive automated testing..",
+        desc: "Robust backend services with Spring, thoughtful API design, asynchronous processing and comprehensive automated testing.",
     },
     {
         name: "React",
