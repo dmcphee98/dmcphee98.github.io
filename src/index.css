@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* ── Portfolio palette ─────────────────────────────────── */
+  --color-dark:          #080D14;   /* near-black — darkest bg, text on light */
+  --color-surface:       #0F1E30;   /* cards, buttons */
+  --color-surface-dark:  #091525;   /* section bands, hover */
+  --color-muted:         #5A9CBD;   /* muted text on dark */
+  --color-accent:        #C8941C;   /* tussock gold — pop accent */
+  --color-accent-bold:   #EBB82A;   /* bright tussock — bold accent */
+  --color-elevated:      #152840;   /* elevated cards, borders */
+  --color-page:          #0C1520;   /* dark page background */
+  --color-page-light:    #E8F0F8;   /* light section background */
+  --color-surface-light: #F4F8FC;   /* cards on light background */
+  --color-content:       #E0EEF8;   /* primary text on dark */
+  --color-content-dim:   #456880;   /* secondary text on dark */
+  --color-on-light:      #1E3A58;   /* body text on light bg */
+  --color-on-light-dim:  #3A6080;   /* muted text on light bg */
+  --color-on-light-faint:#2A5070;   /* faint text on light bg */
+
+
+  /* ── Animations ────────────────────────────────────────── */
+  --animate-blink:         blink 1s step-end infinite;
+  --animate-blink-fade:    blink 1.1s ease-in-out infinite;
+  --animate-marquee-left:  marquee-left  var(--marquee-duration, 32s) linear infinite;
+  --animate-marquee-right: marquee-right var(--marquee-duration, 32s) linear infinite;
+
+  /* ── Font ──────────────────────────────────────────────── */
+  --font-sans:   'DM Sans', system-ui, sans-serif;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-33.333%); }
+  to   { transform: translateX(0); }
+}
+@keyframes mountain-draw {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* ── Animated skill icons (components/icons/AnimatedSkillIcons.tsx) ── */
+/* Steam: each wisp is a repeating wave scrolled up by exactly one period, so the loop is seamless.
+   One period is 280 of the Java icon's 560 viewBox units, i.e. 50% of the icon's height. */
+@keyframes steam-snake {
+  to { transform: translateY(-50%); }
+}
+/* Draw, hold, then fade out — the hold keeps the loop from feeling frantic */
+@keyframes draw-hold-fade {
+  0%       { stroke-dashoffset: 1; opacity: 1; }
+  35%, 80% { stroke-dashoffset: 0; opacity: 1; }
+  100%     { stroke-dashoffset: 0; opacity: 0; }
+}
+@keyframes arrowhead-pop {
+  0%, 34%  { opacity: 0; transform: scale(0.3); }
+  42%      { opacity: 1; transform: scale(1.15); }
+  48%, 80% { opacity: 1; transform: scale(1); }
+  100%     { opacity: 0; transform: scale(1); }
+}
+@keyframes orbit-spin {
+  to { transform: rotate(360deg); }
+}
+
+.icon-steam     { animation: steam-snake 1.6s linear infinite; will-change: transform; }
+.icon-orbit     { animation: draw-hold-fade 4s ease-in-out infinite both; }
+.icon-orbit-spin {
+  transform-origin: 12px 12px;
+  animation: orbit-spin 14s linear infinite;
+}
+.icon-smile     { animation: draw-hold-fade 3.5s ease-out infinite both; }
+.icon-arrowhead {
+  transform-origin: 630px 320px; /* arrowhead corner, in the logo's 640×512 viewBox */
+  animation: arrowhead-pop 3.5s ease-out infinite both;
+}
+
+/* Paused at rest. FeaturedSkillCard's useHoverAnimations plays them on hover and, on leave,
+   lets each run on to its next rest frame. --rest-every marks rest frames that come more often
+   than once a loop: the atom repeats every 60°. */
+.icon-steam, .icon-orbit, .icon-orbit-spin, .icon-smile, .icon-arrowhead {
+  animation-play-state: paused;
+}
+/* Not inherited, so the orbits don't pick up the spinning group's value */
+@property --rest-every {
+  syntax: "*";
+  inherits: false;
+}
+.icon-orbit-spin { --rest-every: 2.3333s; } /* 14s / 6 */
+
+/* Touch screens can't hover, so there the icons just play all the time
+   (useHoverAnimations leaves them alone on these devices) */
+@media (hover: none) {
+  .icon-steam, .icon-orbit, .icon-orbit-spin, .icon-smile, .icon-arrowhead {
+    animation-play-state: running;
+  }
+}
+
+/* Reduced motion: show each logo complete and still */
+@media (prefers-reduced-motion: reduce) {
+  .icon-steam, .icon-orbit, .icon-orbit-spin, .icon-smile, .icon-arrowhead {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+html { scroll-behavior: smooth; }
+body { background: #080D14; }
