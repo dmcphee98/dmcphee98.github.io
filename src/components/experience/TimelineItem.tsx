@@ -12,18 +12,37 @@ export function TimelineItem({ item, index, last, revealed, snapped, itemRef }: 
 
     const cardShadow = "0 4px 24px color-mix(in srgb, var(--color-dark) 9%, transparent)";
 
-    const dot = (
-        <div
-            style={{
-                opacity: revealed ? 1 : 0,
-                transform: revealed ? `scale(${snapped ? 2.0 : 1})` : "scale(0)",
-                transition: "opacity 350ms ease, transform 350ms ease",
-                boxShadow: snapped
-                    ? "0 0 0 5px color-mix(in srgb, var(--color-accent) 25%, transparent), 0 0 16px color-mix(in srgb, var(--color-accent) 45%, transparent)"
-                    : "0 0 0 3px color-mix(in srgb, var(--color-accent) 18%, transparent)",
-            }}
-            className="w-4 h-4 rounded-full bg-accent border-[3px] border-page-light"
-        />
+    // Drawn as SVG rather than a rounded CSS box: Chrome scales a rounded box's corners as
+    // separate pieces, and mid-animation hairline gaps between them showed as a white cross.
+    // The 16px box keeps the layout; the 48px drawing overflows it to leave room for the glow.
+    const fade = (on: boolean) => ({ opacity: on ? 1 : 0, transition: "opacity 350ms ease" });
+    // Rendered in both the mobile and desktop layouts; each copy needs its own gradient id,
+    // since a gradient inside the hidden layout can't be used by the visible one.
+    const dot = (layout: "mobile" | "desktop") => (
+        <div className="relative w-4 h-4">
+            <svg
+                viewBox="-24 -24 48 48"
+                className="absolute -inset-4 w-12 h-12 overflow-visible"
+                style={{
+                    opacity: revealed ? 1 : 0,
+                    transform: revealed ? `scale(${snapped ? 2.0 : 1})` : "scale(0)",
+                    transition: "opacity 350ms ease, transform 350ms ease",
+                }}
+            >
+                <defs>
+                    <radialGradient id={`timeline-glow-${layout}-${index}`}>
+                        <stop offset="0.33" stopColor="var(--color-accent)" stopOpacity="0.45" />
+                        <stop offset="0.55" stopColor="var(--color-accent)" stopOpacity="0.18" />
+                        <stop offset="1" stopColor="var(--color-accent)" stopOpacity="0" />
+                    </radialGradient>
+                </defs>
+                <circle r="24" fill={`url(#timeline-glow-${layout}-${index})`} style={fade(snapped)} />
+                <circle r="11" style={{ fill: "var(--color-accent)", fillOpacity: 0.18, ...fade(!snapped) }} />
+                <circle r="13" style={{ fill: "var(--color-accent)", fillOpacity: 0.25, ...fade(snapped) }} />
+                <circle r="8" style={{ fill: "var(--color-page-light)" }} />
+                <circle r="5" style={{ fill: "var(--color-accent)" }} />
+            </svg>
+        </div>
     );
 
     const cardInner = (
@@ -40,11 +59,11 @@ export function TimelineItem({ item, index, last, revealed, snapped, itemRef }: 
     );
 
     return (
-        <div>
+        <div ref={itemRef}>
             {/* Mobile: dot + line left, card right */}
             <div className="md:hidden flex gap-4">
                 <div className="flex flex-col items-center shrink-0">
-                    <div className="mt-1">{dot}</div>
+                    <div data-timeline-dot className="mt-1">{dot("mobile")}</div>
                     {!last && <div className="w-px flex-1 bg-dark/[0.12] mt-2" />}
                 </div>
                 <div className="flex-1 pb-8">
@@ -79,7 +98,7 @@ export function TimelineItem({ item, index, last, revealed, snapped, itemRef }: 
                         </div>
                     )}
                 </div>
-                <div ref={itemRef} className="flex justify-center relative z-60">{dot}</div>
+                <div data-timeline-dot className="flex justify-center relative z-60">{dot("desktop")}</div>
                 <div className="pl-10">
                     {!isLeft && (
                         <div
