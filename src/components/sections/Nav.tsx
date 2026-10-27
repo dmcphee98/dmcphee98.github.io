@@ -1,5 +1,6 @@
 import { useScrollY } from "@/hooks/useScrollY";
 import { scrollToContact } from "@/lib/utils";
+import { Logomark } from "@/components/ui/Logomark";
 
 export function Nav() {
     const scrollY = useScrollY();
@@ -9,7 +10,8 @@ export function Nav() {
     return (
         <nav className={`fixed top-0 left-0 right-0 z-[200] px-5 md:px-10 h-14 md:h-14.5 flex items-center justify-between transition-all duration-400 ${navSolid ? "bg-dark/95 backdrop-blur-md" : "bg-transparent"}`}>
             {/* Over the hero, the name sits on light sky on mobile and on the dark gradient on desktop */}
-            <span className={`text-base font-extrabold tracking-[-0.01em] transition-colors duration-400 ${navSolid ? "text-content" : "text-dark md:text-content"}`}>
+            <span className={`flex items-center gap-2.5 text-base font-extrabold tracking-[-0.01em] transition-colors duration-400 ${navSolid ? "text-content" : "text-dark md:text-content"}`}>
+                <Logomark className="h-6 w-auto" />
                 Dean McPhee
             </span>
             <div className="flex items-center gap-[1.8rem]">
