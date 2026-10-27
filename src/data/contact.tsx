@@ -1,6 +1,6 @@
-import { SiGmail, SiGithub } from "react-icons/si";
+import { SiGithub } from "react-icons/si";
 import { FaLinkedinIn } from "react-icons/fa";
-import { TbFileCv } from "react-icons/tb";
+import { FaEnvelope, FaFilePdf } from "react-icons/fa6";
 
 export const EMAIL = "deanjamesmcphee@gmail.com";
 export const EMAIL_HREF = `mailto:${EMAIL}`;
@@ -17,8 +17,8 @@ export interface ContactLink {
 }
 
 export const CONTACT_LINKS: ContactLink[] = [
-    { icon: <SiGmail size={28} />, href: EMAIL_HREF, label: "Email", cls: "bg-accent text-dark hover:bg-accent-bold" },
+    { icon: <FaEnvelope size={28} />, href: EMAIL_HREF, label: "Email", cls: "bg-accent text-dark hover:bg-accent-bold" },
     { icon: <FaLinkedinIn size={28} />, href: LINKEDIN_URL, label: "LinkedIn", cls: "bg-muted text-white hover:bg-[#4A8CAD]" },
     { icon: <SiGithub size={30} />, href: GITHUB_URL, label: "GitHub", cls: "bg-elevated text-content hover:bg-surface" },
-    { icon: <TbFileCv size={32} />, href: CV_PATH, download: "DeanMcPheeCV.pdf", label: "Download CV", cls: "bg-surface-dark md:bg-surface text-accent hover:bg-elevated" },
+    { icon: <FaFilePdf size={32} className="translate-x-0.5" />, href: CV_PATH, download: "DeanMcPheeCV.pdf", label: "Download CV", cls: "bg-surface-dark md:bg-surface text-accent hover:bg-elevated" },
 ];
