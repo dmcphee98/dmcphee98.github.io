@@ -1,10 +1,13 @@
-import { projects } from "@/data/projects";
+import type { Project } from "@/data/projects";
 
-export function ProjectCard({ p }: { p: typeof projects[0] }) {
+export function ProjectCard({ p }: { p: Project }) {
     return (
+        // Without a url the anchor has no href, so clicking it does nothing
         <a
-            href="#"
-            className="group block no-underline h-full px-[2.2rem] py-8 bg-surface/70 rounded-xl
+            href={p.url}
+            target={p.url ? "_blank" : undefined}
+            rel={p.url ? "noopener noreferrer" : undefined}
+            className="group block no-underline h-full px-[2.2rem] py-8 bg-surface/85 md:bg-surface/70 rounded-xl
                        border-2 border-transparent
                        transition-all duration-[220ms]
                        hover:bg-surface-dark hover:border-accent hover:-translate-y-1"
@@ -21,9 +24,11 @@ export function ProjectCard({ p }: { p: typeof projects[0] }) {
                     </span>
                 ))}
             </div>
-            <div className="mt-4 text-sm font-bold text-accent tracking-[0.04em] opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                View project →
-            </div>
+            {p.url && (
+                <div className="mt-4 text-sm font-bold text-accent tracking-[0.04em] opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    View project →
+                </div>
+            )}
         </a>
     );
 }

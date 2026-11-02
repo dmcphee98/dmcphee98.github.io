@@ -1,4 +1,12 @@
-export const projects = [
+export type Project = {
+    title: string;
+    desc: string;
+    tags: string[];
+    year: string;
+    url?: string;
+};
+
+export const projects: Project[] = [
     {
         title: "Project Alpha",
         desc: "Distributed systems tool built with Go and Kubernetes. Cut deployment time by 60%.",

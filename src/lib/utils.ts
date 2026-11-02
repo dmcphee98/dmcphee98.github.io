@@ -11,6 +11,10 @@ export function scrollToSection(id: string) {
 
 // The contact hero is pinned to the bottom of the viewport, so scrollIntoView sees it as already
 // in view; it's only fully uncovered at the very end of the page
+export function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" })
+}
+
 export function scrollToContact() {
   window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "smooth" })
 }

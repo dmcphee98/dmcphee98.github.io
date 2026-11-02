@@ -9,7 +9,8 @@ export function ScrollToTopButton() {
         const update = () => {
             const sy = window.scrollY;
             const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-            setProgress(maxScroll > 0 ? sy / maxScroll : 0);
+            // Clamp, since Safari's elastic overscroll pushes scrollY past the ends
+            setProgress(maxScroll > 0 ? Math.min(Math.max(sy / maxScroll, 0), 1) : 0);
             setVisible(sy > window.innerHeight * 0.8);
         };
         window.addEventListener("scroll", update, { passive: true });
